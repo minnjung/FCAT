@@ -3,7 +3,7 @@
 ![Overview](media/overview.jpg)
 
 ### Abstract
-Point cloud-based large-scale place recognition is still challenging due to the difficulty of extracting discriminative local descriptors from an unordered point cloud and integrating them effectively into a robust global descriptor. In this work, we construct a novel network named **FCAT** (Fully Convolutional network with a self-ATtention unit) that can generate a discriminative and context-aware global descriptor for place recognition from the 3D point cloud. It features with a novel sparse fully convolutional network architecture with sparse tensors for extracting informative local geometric features computed in a single pass. It also involves a self-attention module for 3D point cloud to encode local context information between local descriptors. Thanks to the effectiveness of these two modules, we demonstrate our method mostly outperforms state-of-the-art methods on large-scale place recognition tasks in PointNetVLAD. Moreover, our method shows strong robustness to different weather and light conditions through the experiments on the 6-DoF image-based visual localization task in RobotCar Seasons dataset.
+Point cloud-based large-scale place recognition is still challenging due to the difficulty of extracting discriminative local descriptors from an unordered point cloud and integrating them effectively into a robust global descriptor. In this work, we construct a novel network named **FCAT (Fully Convolutional network with a self-ATtention unit)** that can generate a discriminative and context-aware global descriptor for place recognition from the 3D point cloud. It features with a novel sparse fully convolutional network architecture with sparse tensors for extracting informative local geometric features computed in a single pass. It also involves a self-attention module for 3D point cloud to encode local context information between local descriptors. Thanks to the effectiveness of these two modules, we demonstrate our method mostly outperforms state-of-the-art methods on large-scale place recognition tasks in PointNetVLAD. Moreover, our method shows strong robustness to different weather and light conditions through the experiments on the 6-DoF image-based visual localization task in RobotCar Seasons dataset.
 
 ### Environment and Dependencies
 Code was tested using Python 3.8 with PyTorch 1.7 and MinkowskiEngine 0.4.3 on Ubuntu 18.04 with CUDA 10.2.
@@ -65,18 +65,18 @@ To train the network, run:
 ```train baseline
 cd training
 
-# To train minkloc3d model on the Baseline Dataset
-python train.py --config ../config/config_baseline.txt --model_config ../models/minkloc3d.txt
+# To train FCAT model on the Baseline Dataset
+python train.py --config ../config/config_baseline.txt --model_config ../models/fcat.txt
 
-# To train minkloc3d model on the Refined Dataset
-python train.py --config ../config/config_refined.txt --model_config ../models/minkloc3d.txt
+# To train FCAT model on the Refined Dataset
+python train.py --config ../config/config_refined.txt --model_config ../models/fcat.txt
 ```
 
 ### Pre-trained Models
 
 Pretrained models are available in `weights` directory
-- `minkloc3d_baseline.pth` trained on the Baseline Dataset 
-- `minkloc3d_refined.pth` trained on the Refined Dataset 
+- `fcat_baseline.pth` trained on the Baseline Dataset 
+- `fcat_refined.pth` trained on the Refined Dataset 
 
 ### Evaluation
 
@@ -86,10 +86,10 @@ To evaluate pretrained models run the following commands:
 cd eval
 
 # To evaluate the model trained on the Baseline Dataset
-python evaluate.py --config ../config/config_baseline.txt --model_config ../models/minkloc3d.txt --weights ../weights/minkloc3d_baseline.pth
+python evaluate.py --config ../config/config_baseline.txt --model_config ../models/fcat.txt --weights ../weights/fcat_baseline.pth
 
 # To evaluate the model trained on the Refined Dataset
-python evaluate.py --config ../config/config_refined.txt --model_config ../models/minkloc3d.txt --weights ../weights/minkloc3d_refined.pth
+python evaluate.py --config ../config/config_refined.txt --model_config ../models/fcat.txt --weights ../weights/fcat_refined.pth
 ```
 
 ## Results
