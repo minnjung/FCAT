@@ -1,0 +1,24 @@
+[DEFAULT]
+num_points = 4096
+
+dataset_folder = /home2/minjung.kim/ICCV21/benchmark_datasets
+
+[TRAIN]
+num_workers = 4
+batch_size = 32
+batch_size_limit = 44
+batch_expansion_rate = 1.4
+batch_expansion_th = 0.7
+
+lr = 1e-4
+epochs = 200
+scheduler_milestones = 30
+
+aug_mode = 1
+weight_decay = 1e-4
+
+loss = BatchHardTripletMarginLoss
+normalize_embeddings = True
+margin = 0.4
+
+train_file = training_queries_baseline.pickle
