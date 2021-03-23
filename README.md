@@ -126,6 +126,3 @@ python evaluate.py --config ../config/config_refined.txt --model_config ../model
 4. Q. Sun et al., "DAGC: Employing Dual Attention and Graph Convolution for Point Cloud based Place Recognition", Proceedings of the 2020 International Conference on Multimedia Retrieval
 5. Z. Liu et al., "LPD-Net: 3D Point Cloud Learning for Large-Scale Place Recognition and Environment Analysis," 2019 IEEE/CVF International Conference on Computer Vision (ICCV)
 6. J. Komorowski, "MinkLoc3D: Point Cloud Based Large-Scale Place Recognition", Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), (2021)
-
-### License
-Our code is released under the MIT License (see LICENSE file for details).
