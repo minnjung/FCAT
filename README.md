@@ -1,6 +1,6 @@
 # FCAT: Fully Convolutional Network with Self-Attention for Point Cloud based Place Recognition
 
-![Overview](overview.pdf)
+![Overview](overall.pdf)
 
 ### Abstract
 Point cloud-based large-scale place recognition is still challenging due to the difficulty of extracting discriminative local descriptors from an unordered point cloud and integrating them effectively into a robust global descriptor. In this work, we construct a novel network named **FCAT (Fully Convolutional network with a self-ATtention unit)** that can generate a discriminative and context-aware global descriptor for place recognition from the 3D point cloud. It features with a novel sparse fully convolutional network architecture with sparse tensors for extracting informative local geometric features computed in a single pass. It also involves a self-attention module for 3D point cloud to encode local context information between local descriptors. Thanks to the effectiveness of these two modules, we demonstrate our method mostly outperforms state-of-the-art methods on large-scale place recognition tasks in PointNetVLAD. Moreover, our method shows strong robustness to different weather and light conditions through the experiments on the 6-DoF image-based visual localization task in RobotCar Seasons dataset.
