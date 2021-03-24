@@ -1,6 +1,6 @@
 # FCAT: Fully Convolutional Network with Self-Attention for Point Cloud based Place Recognition
 
-![Overview](media/overview.jpg)
+![Overview](overview.pdf)
 
 ### Abstract
 Point cloud-based large-scale place recognition is still challenging due to the difficulty of extracting discriminative local descriptors from an unordered point cloud and integrating them effectively into a robust global descriptor. In this work, we construct a novel network named **FCAT (Fully Convolutional network with a self-ATtention unit)** that can generate a discriminative and context-aware global descriptor for place recognition from the 3D point cloud. It features with a novel sparse fully convolutional network architecture with sparse tensors for extracting informative local geometric features computed in a single pass. It also involves a self-attention module for 3D point cloud to encode local context information between local descriptors. Thanks to the effectiveness of these two modules, we demonstrate our method mostly outperforms state-of-the-art methods on large-scale place recognition tasks in PointNetVLAD. Moreover, our method shows strong robustness to different weather and light conditions through the experiments on the 6-DoF image-based visual localization task in RobotCar Seasons dataset.
@@ -54,11 +54,9 @@ python generate_test_sets.py
 ```
 
 ### Training
-To train **MinkLoc3D** network, download and decompress the dataset and generate training pickles as described above.
+To train **FCAT** network, download and decompress the dataset and generate training pickles as described above.
 Edit the configuration file (`config_baseline.txt` or `config_refined.txt`). 
 Set `dataset_folder` parameter to the dataset root folder.
-Modify `batch_size_limit` parameter depending on available GPU memory. 
-Default limit (=256) requires at least 11GB of GPU RAM.
 
 To train the network, run:
 
