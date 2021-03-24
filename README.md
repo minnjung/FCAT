@@ -26,7 +26,7 @@ export PYTHONPATH=$PYTHONPATH:/home/.../FCAT
 ### Datasets
 
 **FCAT** is trained on a subset of Oxford RobotCar and In-house (U.S., R.A., B.D.) datasets introduced in
-*PointNetVLAD: Deep Point Cloud Based Retrieval for Large-Scale Place Recognition* paper ([link](https://arxiv.org/pdf/1804.03492)).
+*PointNetVLAD: Deep Point Cloud Based Retrieval for Large-Scale Place Recognition* paper [1].
 There are two training datasets:
 - Baseline Dataset - consists of a training subset of Oxford RobotCar
 - Refined Dataset - consists of training subset of Oxford RobotCar and training subset of In-house
