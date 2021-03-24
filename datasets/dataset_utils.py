@@ -1,5 +1,3 @@
-# Author: Jacek Komorowski
-# Warsaw University of Technology
 
 import torch
 from torch.utils.data import DataLoader
@@ -7,10 +5,10 @@ import MinkowskiEngine as ME
 
 from datasets.oxford import OxfordDataset, TrainTransform, TrainSetTransform
 from datasets.samplers import BatchSampler
-from misc.utils import MinkLocParams
+from misc.utils import FCATParams
 
 
-def make_datasets(params: MinkLocParams, debug=False):
+def make_datasets(params: FCATParams, debug=False):
     # Create training and validation datasets
     datasets = {}
     train_transform = TrainTransform(params.aug_mode)
@@ -28,7 +26,7 @@ def make_datasets(params: MinkLocParams, debug=False):
     return datasets
 
 
-def make_eval_dataset(params: MinkLocParams):
+def make_eval_dataset(params: FCATParams):
     # Create evaluation datasets
     dataset = OxfordDataset(params.dataset_folder, params.test_file, transform=None)
     return dataset
@@ -72,7 +70,7 @@ def make_collate_fn(dataset: OxfordDataset, mink_quantization_size=None):
     return collate_fn
 
 
-def make_dataloaders(params: MinkLocParams, debug=False):
+def make_dataloaders(params: FCATParams, debug=False):
     """
     Create training and validation dataloaders that return groups of k=2 similar elements
     :param train_params:

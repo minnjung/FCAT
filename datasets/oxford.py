@@ -1,8 +1,3 @@
-# Author: Jacek Komorowski
-# Warsaw University of Technology
-
-# Dataset wrapper for Oxford laser scans dataset from PointNetVLAD project
-# For information on dataset see: https://github.com/mikacuy/pointnetvlad
 
 import os
 import pickle

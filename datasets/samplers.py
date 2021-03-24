@@ -1,5 +1,3 @@
-# Author: Jacek Komorowski
-# Warsaw University of Technology
 
 import random
 import copy

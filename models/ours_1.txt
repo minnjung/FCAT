@@ -1,6 +1,6 @@
-# MinkLoc3D model
+# FCAT model
 [MODEL]
-model = MinkFCGF_NetVlad_ATT
+model = FCAT_NetVlad_ATT
 mink_quantization_size = 0.01
 planes = 32,64,64
 layers = 1,1,1

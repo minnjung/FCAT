@@ -1,5 +1,3 @@
-# Author: Jacek Komorowski
-# Warsaw University of Technology
 
 import os
 import configparser
@@ -15,7 +13,7 @@ class ModelParams:
 
         self.model_params_path = model_params_path
         self.model = params.get('model')
-        self.output_dim = params.getint('output_dim', 256)      # Size of the final descriptor
+        self.output_dim = params.getint('output_dim', 512)      # Size of the final descriptor
 
         # Add gating as the last step
         if 'vlad' in self.model.lower():
@@ -26,30 +24,12 @@ class ModelParams:
         # Model dependent
         #######################################################################
 
-        if 'MinkFPN' in self.model:
+        if 'FCAT' in self.model:
             # Models using MinkowskiEngine
             self.mink_quantization_size = params.getfloat('mink_quantization_size')
             # Size of the local features from backbone network (only for MinkNet based models)
             # For PointNet-based models we always use 1024 intermediary features
-            self.feature_size = params.getint('feature_size', 256)
-            if 'planes' in params:
-                self.planes = [int(e) for e in params['planes'].split(',')]
-            else:
-                self.planes = [32, 64, 64]
-
-            if 'layers' in params:
-                self.layers = [int(e) for e in params['layers'].split(',')]
-            else:
-                self.layers = [1, 1, 1]
-
-            self.num_top_down = params.getint('num_top_down', 1)
-            self.conv0_kernel_size = params.getint('conv0_kernel_size', 5)
-        elif 'MinkFCGF' in self.model:
-            # Models using MinkowskiEngine
-            self.mink_quantization_size = params.getfloat('mink_quantization_size')
-            # Size of the local features from backbone network (only for MinkNet based models)
-            # For PointNet-based models we always use 1024 intermediary features
-            self.feature_size = params.getint('feature_size', 256)
+            self.feature_size = params.getint('feature_size', 64)
             if 'planes' in params:
                 self.planes = [int(e) for e in params['planes'].split(',')]
             else:
@@ -93,9 +73,9 @@ def xyz_from_depth(depth_image, depth_intrinsic, depth_scale=1000.):
     return xyz
 
 
-class MinkLocParams:
+class FCATParams:
     """
-    Params for training MinkLoc models on Oxford dataset
+    Params for training FCAT models on Oxford dataset
     """
     def __init__(self, params_path, model_params_path):
         """
@@ -134,7 +114,7 @@ class MinkLocParams:
             self.batch_size_limit = self.batch_size
             self.batch_expansion_rate = None
 
-        self.lr = params.getfloat('lr', 1e-3)
+        self.lr = params.getfloat('lr', 1e-4)
 
         self.scheduler = params.get('scheduler', 'MultiStepLR')
         if self.scheduler is not None:
@@ -146,7 +126,7 @@ class MinkLocParams:
             else:
                 raise NotImplementedError('Unsupported LR scheduler: {}'.format(self.scheduler))
 
-        self.epochs = params.getint('epochs', 20)
+        self.epochs = params.getint('epochs', 200)
         self.weight_decay = params.getfloat('weight_decay', None)
         self.normalize_embeddings = params.getboolean('normalize_embeddings', True)    # Normalize embeddings during training and evaluation
         self.loss = params.get('loss')

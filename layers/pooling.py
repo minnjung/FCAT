@@ -1,5 +1,4 @@
 # Code taken from: https://github.com/filipradenovic/cnnimageretrieval-pytorch
-# and ported to MinkowskiEngine by Jacek Komorowski
 
 import torch
 import torch.nn as nn

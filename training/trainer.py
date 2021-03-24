@@ -1,5 +1,3 @@
-# Author: Jacek Komorowski
-# Warsaw University of Technology
 
 # Train on Oxford dataset (from PointNetVLAD paper) using BatchHard hard negative mining.
 
@@ -14,7 +12,7 @@ import pathlib
 from torch.utils.tensorboard import SummaryWriter
 
 from eval.evaluate import evaluate, print_eval_stats
-from misc.utils import MinkLocParams, get_datetime
+from misc.utils import FCATParams, get_datetime
 from models.loss import make_loss
 from models.model_factory import model_factory
 
@@ -57,7 +55,7 @@ def tensors_to_numbers(stats):
     return stats
 
 
-def do_train(dataloaders, params: MinkLocParams, debug=False, visualize=False, resume=None):
+def do_train(dataloaders, params: FCATParams, debug=False, visualize=False, resume=None):
     # Create model class
     s = get_datetime()
     model = model_factory(params) ######## Load the model
@@ -234,9 +232,7 @@ def do_train(dataloaders, params: MinkLocParams, debug=False, visualize=False, r
                     dataloaders['train'].batch_sampler.expand_batch()
 
     print('')
-
-    # Save final model weights
-    #final_model_path = model_pathname + '_final.pth'
+    
     final_model_path = os.path.join(model_pathname, 'final.pth')
     torch.save(model.state_dict(), final_model_path)
 

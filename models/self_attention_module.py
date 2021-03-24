@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-from models.FCGF.common import get_norm
+from models.common import get_norm
 
 import MinkowskiEngine as ME
 import MinkowskiEngine.MinkowskiFunctional as MEF

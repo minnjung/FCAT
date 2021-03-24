@@ -1,7 +1,3 @@
-# Author: Jacek Komorowski
-# Warsaw University of Technology
-
-# Evaluation code adapted from PointNetVlad code: https://github.com/mikacuy/pointnetvlad
 
 from sklearn.neighbors import KDTree
 import numpy as np
@@ -12,7 +8,7 @@ import torch
 import MinkowskiEngine as ME
 import random
 
-from misc.utils import MinkLocParams
+from misc.utils import FCATParams
 from models.model_factory import model_factory
 
 DEBUG = False

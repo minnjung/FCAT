@@ -1,7 +1,7 @@
 [DEFAULT]
 num_points = 4096
 
-dataset_folder = /home2/minjung.kim/ICCV21/benchmark_datasets
+dataset_folder = /* dataset_path */
 
 [TRAIN]
 num_workers = 4
@@ -11,7 +11,7 @@ batch_expansion_rate = 1.4
 batch_expansion_th = 0.7
 
 lr = 1e-4
-epochs = 200
+epochs = 300
 scheduler_milestones = 30
 
 aug_mode = 1

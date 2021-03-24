@@ -1,11 +1,9 @@
-# Author: Jacek Komorowski
-# Warsaw University of Technology
 
 import argparse
 import torch
 
 from training.trainer import do_train
-from misc.utils import MinkLocParams
+from misc.utils import FCATParams
 from datasets.dataset_utils import make_dataloaders
 
 
@@ -25,7 +23,7 @@ if __name__ == '__main__':
     print('Debug mode: {}'.format(args.debug))
     print('Visualize: {}'.format(args.visualize))
 
-    params = MinkLocParams(args.config, args.model_config)
+    params = FCATParams(args.config, args.model_config)
     params.print()
 
     if args.debug:

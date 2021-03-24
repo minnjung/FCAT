@@ -139,7 +139,6 @@ class MinkNetVladWrapper(torch.nn.Module):
             features = self.SA(features)
         
         x = self.net_vlad(features)
-        #x = F.normalize(x, dim=1, p=2)
         
         assert x.shape[0] == batch_size
         assert x.shape[1] == self.output_dim
