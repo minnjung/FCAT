@@ -2,9 +2,9 @@
 import torch
 import MinkowskiEngine as ME
 import MinkowskiEngine.MinkowskiFunctional as MEF
-from models.FCGF.common import get_norm
+from models.common import get_norm
 
-from models.FCGF.residual_block import get_block
+from models.residual_block import get_block
 
 
 class ResUNet2(ME.MinkowskiNetwork):

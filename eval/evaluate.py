@@ -254,7 +254,7 @@ if __name__ == "__main__":
     print('Log search results: {}'.format(args.log))
     print('')
 
-    params = MinkLocParams(args.config, args.model_config)
+    params = FCATParams(args.config, args.model_config)
     params.print()
 
     if torch.cuda.is_available():

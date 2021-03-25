@@ -18,7 +18,7 @@ aug_mode = 1
 weight_decay = 1e-4
 
 loss = BatchHardTripletMarginLoss
-normalize_embeddings = True
+normalize_embeddings = False
 margin = 0.4
 
 train_file = training_queries_baseline.pickle

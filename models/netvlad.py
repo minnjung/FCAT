@@ -1,5 +1,3 @@
-# PointNet code taken from PointNetVLAD Pytorch implementation: https://github.com/cattaneod/PointNetVlad-Pytorch
-# Adapted by Jacek Komorowski
 
 import torch
 import torch.nn as nn
@@ -7,9 +5,9 @@ import torch.utils.data
 import torch.nn.functional as F
 import math
 
-from models.FCGF.self_attention_module import SelfAttention as SA
-from models.FCGF.self_attention_module import SelfAttention2 as SA2
-from models.FCGF.self_attention_module import SelfAttentionT as SAT
+from models.self_attention_module import SelfAttention as SA
+from models.self_attention_module import SelfAttention2 as SA2
+from models.self_attention_module import SelfAttentionT as SAT
 
 # NOTE: The toolbox can only pool lists of features of the same length. It was specifically optimized to efficiently
 # o so. One way to handle multiple lists of features of variable length is to create, via a data augmentation
